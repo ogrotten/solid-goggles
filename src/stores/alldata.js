@@ -27,6 +27,7 @@ database.insert = (pageInfo) => {
 		});
 }
 database.update = (pageInfo) => {
+	console.log(`update success`,)
 	database.card.put(pageInfo)
 }
 database.get = (id) => {
@@ -34,7 +35,10 @@ database.get = (id) => {
 }
 database.getall = () => {
 	return database.card.where("id").above(-1)/* .reverse() */.toArray()
-		.then(() => console.log(`getall success`,))
+		.then((result) => {
+			console.log(`getall success`, result)
+			return result
+		})
 		.catch((err) => {
 			console.log(">>> DATABASE 'getall' error: ", err);
 		});
