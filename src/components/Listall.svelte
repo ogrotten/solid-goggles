@@ -5,4 +5,6 @@
 
 	allcards.subscribe( x => list = x)
 </script>
-<p>Listall</p>
+{#each list as card}
+<p>{card.title}</p>
+{/each}
