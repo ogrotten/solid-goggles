@@ -6,11 +6,37 @@
 
 <Tailwind />
 
-<main class="text-center p-4 max-w-xs mx-auto sm:max-w-none">
-  <h1 class="text-red-500 text-6xl uppercase leading-loose font-thin">Hello {name}!</h1>
-  <p class="text-gray-700">
-    Visit the <a class="text-blue-600 hover:underline" href="https://svelte.dev/tutorial"
-      >Svelte tutorial</a
-    > to learn how to build Svelte apps.
-  </p>
-</main>
+<div class="container">
+	<div class="header border border-gray-700 bg-gray-100">Header</div>
+	<div class="sidebar">Sidebar</div>
+	<div class="content">Content</div>
+</div>
+
+<style global lang="postcss">
+	/* https://grid.layoutit.com/?id=jJ2U26S */
+	.container {
+		max-width: 900px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 240px 1fr;
+		grid-template-rows: 100px 1fr;
+		gap: 0px 0px;
+		grid-auto-flow: row;
+		grid-template-areas:
+		"header header"
+		"sidebar content";
+	}
+
+	.header { grid-area: header; }
+
+	.sidebar {
+		grid-area: sidebar;
+		min-height: 500px;
+	}
+	
+	.content {
+		grid-area: content;
+		min-height: 500px;
+	}
+
+</style>
