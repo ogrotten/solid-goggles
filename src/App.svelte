@@ -1,15 +1,16 @@
 <script>
-  import Tailwind from './components/Tailwind.svelte';
+  import marked from "marked"
 
-  export let name;
+  import Content from './components/Content.svelte';
+  import Tailwind from './components/Tailwind.svelte';
 </script>
 
 <Tailwind />
 
 <div class="container">
 	<div class="header border border-gray-700 bg-gray-100">Header</div>
-	<div class="sidebar">Sidebar</div>
-	<div class="content">Content</div>
+	<div class="sidebar border border-red-400">Sidebar</div>
+	<div class="content border border-blue-400"><Content /></div> 
 </div>
 
 <style global lang="postcss">
@@ -18,7 +19,7 @@
 		max-width: 900px;
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: 240px 1fr;
+		grid-template-columns: 180px 1fr;
 		grid-template-rows: 100px 1fr;
 		gap: 0px 0px;
 		grid-auto-flow: row;
