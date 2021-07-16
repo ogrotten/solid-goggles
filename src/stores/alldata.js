@@ -36,7 +36,7 @@ database.get = (id) => {
 database.getall = () => {
 	return database.card.where("id").above(-1)/* .reverse() */.toArray()
 		.then((result) => {
-			console.log(`getall success`, result)
+			// console.log(`getall success`, result)
 			return result
 		})
 		.catch((err) => {

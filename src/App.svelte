@@ -11,13 +11,11 @@
 
 	onMount(async () => {
     const res = await database.getall()
-    console.log(14, res.length)
     allcards.update(() => res)
   })
   allcards.subscribe(x => {
     pageCount = x.length
   })
-  console.log(`conlog: `, pageCount)
 
 </script>
 
