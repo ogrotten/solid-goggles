@@ -21,19 +21,19 @@ database.version(1).stores({
 });
 
 database.insert = (pageInfo) => {
-	return database.pages.put(pageInfo)
+	return database.card.put(pageInfo)
 		.catch((err) => {
 			console.log(">>> DATABASE 'insert' error: ", err);
 		});
 }
 database.update = (pageInfo) => {
-	database.pages.put(pageInfo)
+	database.card.put(pageInfo)
 }
 database.get = (id) => {
-	return database.pages.get(id)
+	return database.card.get(id)
 }
 database.getall = () => {
-	return database.pages.where("id").above(-1)/* .reverse() */.toArray()
+	return database.card.where("id").above(-1)/* .reverse() */.toArray()
 		.then(() => console.log(`getall success`,))
 		.catch((err) => {
 			console.log(">>> DATABASE 'getall' error: ", err);
