@@ -1,10 +1,22 @@
 <script>
-  import marked from "marked"
+  import {onMount} from "svelte"
+	import {database, allcards} from "./stores/alldata"
 
   import Content from './components/Content.svelte';
   import Tailwind from './components/Tailwind.svelte';
+  import Appstyles from "./Appstyles.svelte"
+
+	onMount(database.getall()
+    .then((result) => {
+      allcards.update(result)
+      setAllData(result)
+      // console.log(15, result);
+    }
+  ));
+
 </script>
 
+<Appstyles />
 <Tailwind />
 
 <div class="container">
@@ -13,31 +25,3 @@
 	<div class="content border border-blue-400"><Content /></div> 
 </div>
 
-<style global lang="postcss">
-	/* https://grid.layoutit.com/?id=jJ2U26S */
-	.container {
-		max-width: 900px;
-		margin: 0 auto;
-		display: grid;
-		grid-template-columns: 180px 1fr;
-		grid-template-rows: 100px 1fr;
-		gap: 0px 0px;
-		grid-auto-flow: row;
-		grid-template-areas:
-		"header header"
-		"sidebar content";
-	}
-
-	.header { grid-area: header; }
-
-	.sidebar {
-		grid-area: sidebar;
-		min-height: 500px;
-	}
-	
-	.content {
-		grid-area: content;
-		min-height: 500px;
-	}
-
-</style>
